@@ -32,11 +32,11 @@ for ln in range( num_points ):
         span_dict[y1][0].add( min( x1, x2) )
         span_dict[y1][1].add( max( x1, x2) )
     elif y2 > y1:
-        # vertical down ( record span stops )
+        # vertical down (record span stops)
         for y in range( y1, y2+1 ):
             span_dict[y][1].add( x1 )
     else:
-        # vertical down ( record span starts )
+        # vertical down (record span starts)
         for y in range( y2, y1+1 ):
             span_dict[y][0].add( x1 )
 
@@ -46,6 +46,8 @@ for key in span_dict.keys():
     span_dict[key][1] = sorted( span_dict[key][1] )
 
 def is_point_valid( x, y, span_dict ) :
+    # if the points is not valid return false,
+    # if it is valid, return the highets x - coordinate that is inside the spn to accelerate the horizontal evaluation
     span_idx = bisect.bisect_right( span_dict[y][0], x )
     if span_idx == 0: return None
     span_stop_x = span_dict[y][1][span_idx-1]
@@ -88,8 +90,4 @@ for area, (min_x, min_y, max_x, max_y) in all_squares:
         largest_square = area
         break
 
-    # largest_square = area
 print( f"largest square {largest_square}" )
-
-
-t= 0
