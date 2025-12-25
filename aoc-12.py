@@ -38,6 +38,6 @@ for line in lines[6*5:]:
 
 # Not my favourite problem. Discovered by accident while trying to gauge if my initial approach was correct in setting the constraint
 print(f"trivial rejections {trivial_rejections}")
-print(f"trivial accepts {accepts}")           # trivial  accepts = 492, which is too low
+print(f"trivial accepts {accepts}")
 print(len(shapes))
 

@@ -50,8 +50,7 @@ for machine in machines:
         prob += sum( [ b[j][k]*p_vars[k] for k in range(len(b[0])) ]) == joltages[j]
 
     prob.solve()
-#    print( f"Status {pulp.LpStatus[prob.status]}")
-    status =         pulp.LpStatus[prob.status]
+    status = pulp.LpStatus[prob.status]
     print( f" Status: {status}")
     total_button_presses += prob.objective.value()
 
